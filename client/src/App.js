@@ -1,10 +1,14 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useState} from "react";
 import GlobalStyle from "./styles/global";
 
 //Components
 import InputAquivo from "./components/inputArquivo";
+import DisplayModal from "./components/displayModal";
 
 function App() {
+    const [dadosValidados, setDadosValidados] = useState([]);
+    const [show, setShow] = useState(false);
+
     return (
         <>
             <div className="container card mt-5 p-4">
@@ -12,10 +16,11 @@ function App() {
                     <h2 className="text-center mt-5">Atualizar Produtos</h2>
                 </div>
                 <div className="card-body px-5">
-                    <InputAquivo></InputAquivo>
+                    <InputAquivo setDadosValidados={setDadosValidados} setShow={setShow}></InputAquivo>
                 </div>
             </div>
             <GlobalStyle/>
+            <DisplayModal dadosValidados={dadosValidados} show={show} setShow={setShow}></DisplayModal>
         </>
     )
 };
