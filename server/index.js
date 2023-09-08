@@ -11,7 +11,6 @@ app.use(cors());
 
 //ROTAS
 
-
 app.use("/", userRoutes)
 //rotas de produtos
 app.use("/produtos", produtosRoutes);
