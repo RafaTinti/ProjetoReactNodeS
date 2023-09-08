@@ -15,11 +15,6 @@ const Global = createGlobalStyle`
         justify-content: center;
         background-color: #f2f2f2;
     }
-
-    #root {
-        display: flex;
-        justify-content: center;
-    }
 `;
 
 export default Global;
