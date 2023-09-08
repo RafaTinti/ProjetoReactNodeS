@@ -1,11 +1,7 @@
 import express from "express";
-import { getProdutos, validaArquivo } from "../controllers/produtos";
+import { validaArquivo } from "../controllers/produtos.js";
 
 const router = express.Router();
-
-//rota de listagem
-
-router.get('/', getProdutos);
 
 //Rota de validacao do arquivo 
 
