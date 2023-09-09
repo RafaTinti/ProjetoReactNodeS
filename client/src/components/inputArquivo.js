@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment} from "react";
 import axios from "axios";
 import Papa from "papaparse";
 
@@ -21,7 +21,6 @@ function InputAquivo({setDadosValidados, setShow}){
                         .then(({data}) => {
                             console.log(data);
                             setDadosValidados(data);
-                            
                             setShow(true);
                         })
                     }

@@ -1,10 +1,11 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment} from "react";
+import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import { FaCheck, FaTimes } from "react-icons/fa";
 
-function DisplayModal( {dadosValidados, show, setShow}){
+function DisplayModal( {dadosValidados, show, setShow, setShowAlert}){
     
 
     const handleClose = () => setShow(false);
@@ -12,7 +13,17 @@ function DisplayModal( {dadosValidados, show, setShow}){
 
     const atualizarRegistro = (data) => {
         handleClose();
-        //
+        console.log("hi");
+        axios.post("http://localhost:5000/produtos/update", data)
+        .then(({ data }) => {
+            setShowAlert({data: data, error: data.errno});
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 5000);
+        })
+        .catch(({ data }) => {
+            setShowAlert({data: data, error: 1});
+        });
     };
   
 
@@ -55,7 +66,7 @@ function DisplayModal( {dadosValidados, show, setShow}){
                     <Button variant="secondary" onClick={handleClose}>
                         Voltar
                     </Button>
-                    <Button variant="primary" onClick={atualizarRegistro({dadosValidados})} disabled={disableBtn}>
+                    <Button variant="primary" onClick={() => atualizarRegistro({dadosValidados})} disabled={disableBtn}>
                         Atualizar
                     </Button>
                 </Modal.Footer>
