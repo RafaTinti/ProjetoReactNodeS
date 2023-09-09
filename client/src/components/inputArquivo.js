@@ -2,8 +2,6 @@ import React, {Fragment} from "react";
 import axios from "axios";
 import Papa from "papaparse";
 
-//components
-
 function InputAquivo({setDadosValidados, setShow}){    
 
     const onSubmitForm = async e => {
@@ -12,14 +10,13 @@ function InputAquivo({setDadosValidados, setShow}){
         try {
             let file = document.querySelector("#fileInput").files[0];
             if(file){
+                //parse o csv
                 Papa.parse(file, {
                     header: true,
                     skipEmptyLines: true,
                     complete: function(results){
-                        console.log("finished parse:", results.data);
                         axios.post("http://localhost:5000/produtos", results.data)
                         .then(({data}) => {
-                            console.log(data);
                             setDadosValidados(data);
                             setShow(true);
                         })
@@ -41,7 +38,6 @@ function InputAquivo({setDadosValidados, setShow}){
                     </div>
                 </div>
             </form>
-            
         </>
     );
 }

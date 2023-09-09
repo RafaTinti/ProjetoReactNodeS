@@ -7,6 +7,7 @@ import DisplayModal from "./components/displayModal";
 import AlertResult from "./components/Alert";
 
 function App() {
+    //state hooks
     const [dadosValidados, setDadosValidados] = useState([]);
     const [show, setShow] = useState(false);
     const [showAlert, setShowAlert] = useState(false);

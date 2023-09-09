@@ -5,15 +5,15 @@ import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import { FaCheck, FaTimes } from "react-icons/fa";
 
+/**
+ *  Moda para mostrar os dados apos a validação
+ */
 function DisplayModal( {dadosValidados, show, setShow, setShowAlert}){
     
-
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     const atualizarRegistro = (data) => {
         handleClose();
-        console.log("hi");
         axios.post("http://localhost:5000/produtos/update", data)
         .then(({ data }) => {
             setShowAlert({data: data, error: data.errno});
@@ -76,24 +76,3 @@ function DisplayModal( {dadosValidados, show, setShow, setShowAlert}){
 }
 
 export default DisplayModal
-
-// return (
-//     <>
-//         <div className="modal fade" id="displayModal" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-//             <div className="modal-dialog">
-//                 <div className="modal-content">
-//                     <div className="modal-header">
-//                         <h5 className="modal-title" id="displayModalLabel">Revisão dos dados enviados</h5>
-                        
-//                     </div>
-//                     <div className="modal-body">
-//                         ...
-//                     </div>
-//                     <div className="modal-footer">
-//                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-//                         <button type="button" className="btn btn-primary">Atualizar</button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     </>
