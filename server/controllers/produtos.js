@@ -149,7 +149,7 @@ export const updateProdutos = (req, res) => {
         connection.query(q, (err) => {
             if (err) return res.json(err);
       
-            return res.status(200).json("Usuário atualizado com sucesso.");
+            return res.status(200).json("Produtos atualizados com sucesso.");
         });
     } catch (error) {
         console.error(error.message);

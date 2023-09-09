@@ -14,8 +14,8 @@ function App() {
 
     return (
         <>
-            <AlertResult showAlert={showAlert} setShowAlert={setShowAlert}></AlertResult>
             <div className="container card mt-5 p-4">
+                <AlertResult showAlert={showAlert} setShowAlert={setShowAlert}></AlertResult>
                 <div className="card-title">
                     <h2 className="text-center mt-5">Atualizar Produtos</h2>
                 </div>
