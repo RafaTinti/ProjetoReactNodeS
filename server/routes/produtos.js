@@ -1,5 +1,5 @@
 import express from "express";
-import { validaArquivo } from "../controllers/produtos.js";
+import { validaArquivo, updateProdutos } from "../controllers/produtos.js";
 
 const router = express.Router();
 
@@ -8,6 +8,6 @@ const router = express.Router();
 router.post('/', validaArquivo);
 
 //rota de atualizacao do preços
-
+router.post('/update', updateProdutos)
 
 export default router;
