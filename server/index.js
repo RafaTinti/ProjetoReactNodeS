@@ -1,4 +1,3 @@
-import userRoutes from "./routes/users.js"
 import produtosRoutes from "./routes/produtos.js"
 import express from "express";
 import cors from "cors";
@@ -11,7 +10,6 @@ app.use(cors());
 
 //ROTAS
 
-app.use("/", userRoutes)
 //rotas de produtos
 app.use("/produtos", produtosRoutes);
 

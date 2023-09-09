@@ -27,11 +27,9 @@ export const validaArquivo = (req, res) => {
             }
             else{
                 const listaModificacao = [];
-                // console.log(data);
+
                 // agrupa dados por codigo do produto (para pacotes com mais de um prouto)
                 data = data.groupBy((e) => e.pr_code);
-                // return res.status(200).json(data);
-                console.log(tabelaPrecosNovos);
 
                 // percorre os elementos da tabela de atualizacão de preços
                 for(let e of tabelaPrecosNovos){
@@ -131,7 +129,6 @@ export const validaArquivo = (req, res) => {
                         listaModificacao.push(temp);
                     }
                 }
-
                 return res.status(200).json(listaModificacao);
             }
         });
@@ -144,14 +141,10 @@ export const validaArquivo = (req, res) => {
 
 export const updateProdutos = (req, res) => {
     try {
-        // console.log(req.body.dadosValidados);
         let q = "";
         for(let d of req.body.dadosValidados){
-            console.log(d);
             q += `UPDATE products SET sales_price = ${d.preco_novo} WHERE code = ${d.codigo}; `;
         }
-
-        console.log(q);
 
         connection.query(q, (err) => {
             if (err) return res.json(err);
